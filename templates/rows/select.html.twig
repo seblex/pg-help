@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="card">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <p><h3>Команда: <b>SELECT</b></h3></p>
+                    <hr>
+                    <p>
+                        Синтаксис:
+                    </p>
+                    <blockquote class="blockquote">
+                        SELECT имя_атрибута, имя_атрибута, ...<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;FROM имя_таблицы;
+                    </blockquote>
+                    <hr>
+                    <p>
+                        Пример:
+                    </p>
+                    <div class="card card-gray">
+                        <div class="card-header">
+                            <i>Полная выборка</i>
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote">
+                                SELECT * FROM aircrafts;
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="card card-gray">
+                        <div class="card-header">
+                            <i>Выборка с упорядочиванием по столбцу</i>
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote">
+                                SELECT model, aircraft_code, range<br>
+                                &nbsp;&nbsp;FROM aircrafts<br>
+                                &nbsp;&nbsp;ORDER BY model;
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="card card-gray">
+                        <div class="card-header">
+                            <i>Выборка по условию</i>
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote">
+                                SELECT model, aircraft_code, range<br>
+                                &nbsp;&nbsp;FROM aircrafts<br>
+                                &nbsp;&nbsp;WHERE range >= 4000 AND range <= 6000;
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{%  endblock %}

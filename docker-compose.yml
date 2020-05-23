@@ -1,0 +1,36 @@
+version: "3.5"
+
+services:
+  # Nginx
+  postgres-help-nginx:
+    container_name: postgres-help-nginx
+    build:
+      context: ./.docker/nginx
+    image: postgres-help/nginx
+    volumes:
+      - "./public:/var/www/public:ro"
+    expose:
+      - "${NGINX_EXPOSE_PORT}"
+    depends_on:
+      - postgres-help-php
+    ports:
+      - ${NGINX_PORT}:80
+    networks:
+      - default
+
+  # PHP-FPM
+  postgres-help-php:
+    container_name: postgres-help-php
+    build:
+      context: ./.docker/php
+    image: postgres-help/php
+    volumes:
+      - ".:/var/www"
+      - "./src:/src"
+    expose:
+      - "${PHP_FPM_EXPOSE_PORT}"
+    environment:
+      XDEBUG_CONFIG: remote_host=localhost
+      PHP_IDE_CONFIG: serverName=localhost
+    networks:
+      - default

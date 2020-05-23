@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="card">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <p><h3>Команда: <b>UPDATE</b></h3></p>
+                    <hr>
+                    <p>
+                        Синтаксис:
+                    </p>
+                    <blockquote class="blockquote">
+                        UPDATE имя_таблицы<br>
+                        &nbsp;&nbsp;SET имя_атрибута1 = значение_атрибута1,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;имя_атрибута2 = значение_атрибута2, ...<br>
+                        &nbsp;&nbsp;WHERE условие;
+                    </blockquote>
+                    <hr>
+                    <p>
+                        Пример:
+                    </p>
+                    <blockquote class="blockquote">
+                        UPDATE aircrafts SET range = 3500<br>
+                        &nbsp;&nbsp;WHERE aircraft_code = 'SU9';
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+{%  endblock %}

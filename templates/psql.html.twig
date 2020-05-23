@@ -1,0 +1,654 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Список команд</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body p-0">
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th>Команда</th>
+                        <th>Описание</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">
+                            <i><b>Основные</b></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\copyright</td>
+                        <td>
+                            показать условия использования и распространения PostgreSQL
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\crosstabview [COLUMNS]</td>
+                        <td>
+                            выполнить запрос и отобразить результаты в кросс-таблице
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\errverbose</td>
+                        <td>
+                            показать последнее сообщение об ошибке при максимальной детализации
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\g [FILE] or ;</td>
+                        <td>
+                            выполнить запрос (и отправить результаты в файл или | pipe)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\gexec</td>
+                        <td>
+                            выполнить запрос, затем выполнить каждое значение в его результате
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\gset [PREFIX]</td>
+                        <td>
+                            выполнить запрос и сохранить результаты в переменных psql
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\gx [FILE]</td>
+                        <td>
+                            как \g, но форсирует расширенный режим вывода
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\q</td>
+                        <td>
+                            выход
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\watch [SEC]</td>
+                        <td>
+                            выполнять запрос каждые секунды
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <i><b>Помощь</b></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\? [commands]</td>
+                        <td>
+                            показать справку по командам с обратной косой чертой
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\? options</td>
+                        <td>
+                            показать справку по параметрам командной строки psql
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\? variables</td>
+                        <td>
+                            показать справку по специальным переменным
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\h [NAME]</td>
+                        <td>
+                            справка по синтаксису команд SQL, * для всех команд
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <i>Query Buffer</i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\e [FILE] [LINE]</td>
+                        <td>
+                            edit the query buffer (or file) with external editor
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\ef [FUNCNAME [LINE]]</td>
+                        <td>
+                            edit function definition with external editor
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\ev [VIEWNAME [LINE]]</td>
+                        <td>
+                            edit view definition with external editor
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\p</td>
+                        <td>
+                            show the contents of the query buffer
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\r</td>
+                        <td>
+                            reset (clear) the query buffer
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\s [FILE]</td>
+                        <td>
+                            display history or save it to file
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\w FILE</td>
+                        <td>
+                            write query buffer to file
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <i><b>Input/Output</b></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\copy ...</td>
+                        <td>
+                            perform SQL COPY with data stream to the client host
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\echo [STRING]</td>
+                        <td>
+                            write string to standard output
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\i FILE</td>
+                        <td>
+                            execute commands from file
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\ir FILE</td>
+                        <td>
+                            as \i, but relative to location of current script
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\o [FILE]</td>
+                        <td>
+                            send all query results to file or |pipe
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\qecho [STRING]</td>
+                        <td>
+                            write string to query output stream (see \o)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <i><b>Conditional</b></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\if EXPR</td>
+                        <td>
+                            begin conditional block
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\elif EXPR</td>
+                        <td>
+                            alternative within current conditional block
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\else</td>
+                        <td>
+                            final alternative within current conditional block
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\endif</td>
+                        <td>
+                            end conditional block
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <i><b>Informational</b> (options: S = show system objects, + = additional detail)</i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\d[S+]</td>
+                        <td>
+                            list tables, views, and sequences
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\d[S+]  NAME</td>
+                        <td>
+                            describe table, view, sequence, or index
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\da[S]  [PATTERN]</td>
+                        <td>
+                            list aggregates
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dA[+]  [PATTERN]</td>
+                        <td>
+                            list access methods
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\db[+]  [PATTERN]</td>
+                        <td>
+                            list tablespaces
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dc[S+] [PATTERN]</td>
+                        <td>
+                            list conversions
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dC[+]  [PATTERN]</td>
+                        <td>
+                            list casts
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dd[S]  [PATTERN]</td>
+                        <td>
+                            show object descriptions not displayed elsewhere
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dD[S+] [PATTERN]</td>
+                        <td>
+                            list domains
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\ddp    [PATTERN]</td>
+                        <td>
+                            list default privileges
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dE[S+] [PATTERN]</td>
+                        <td>
+                            list foreign tables
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\det[+] [PATTERN]</td>
+                        <td>
+                            list foreign tables
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\des[+] [PATTERN]</td>
+                        <td>
+                            list foreign servers
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\deu[+] [PATTERN]</td>
+                        <td>
+                            list user mappings
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dew[+] [PATTERN]</td>
+                        <td>
+                            list foreign-data wrappers
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\df[antw][S+] [PATRN]</td>
+                        <td>
+                            list [only agg/normal/trigger/window] functions
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dF[+]  [PATTERN]</td>
+                        <td>
+                            list text search configurations
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dFd[+] [PATTERN]</td>
+                        <td>
+                            list text search dictionaries
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dFp[+] [PATTERN]</td>
+                        <td>
+                            list text search parsers
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dFt[+] [PATTERN]</td>
+                        <td>
+                            list text search templates
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dg[S+] [PATTERN]</td>
+                        <td>
+                            list roles
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\di[S+] [PATTERN]</td>
+                        <td>
+                            list indexes
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dl</td>
+                        <td>
+                            list large objects, same as \lo_list
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dL[S+] [PATTERN]</td>
+                        <td>
+                            list procedural languages
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dm[S+] [PATTERN]</td>
+                        <td>
+                            list materialized views
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dn[S+] [PATTERN]</td>
+                        <td>
+                            list schemas
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\do[S]  [PATTERN]</td>
+                        <td>
+                            list operators
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dO[S+] [PATTERN]</td>
+                        <td>
+                            list collations
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dp     [PATTERN]</td>
+                        <td>
+                            list table, view, and sequence access privileges
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\drds [PATRN1 [PATRN2]]</td>
+                        <td>
+                            list per-database role settings
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dRp[+] [PATTERN]</td>
+                        <td>
+                            list replication publications
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dRs[+] [PATTERN]</td>
+                        <td>
+                            list replication subscriptions
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\ds[S+] [PATTERN]</td>
+                        <td>
+                            list sequences
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dt[S+] [PATTERN]</td>
+                        <td>
+                            list tables
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dT[S+] [PATTERN]</td>
+                        <td>
+                            list data types
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\du[S+] [PATTERN]</td>
+                        <td>
+                            list roles
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dv[S+] [PATTERN]</td>
+                        <td>
+                            list views
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dx[+]  [PATTERN]</td>
+                        <td>
+                            list extensions
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\dy     [PATTERN]</td>
+                        <td>
+                            list event triggers
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\l[+]   [PATTERN]</td>
+                        <td>
+                            list databases
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\sf[+]  FUNCNAME</td>
+                        <td>
+                            show a function's definition
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\sv[+]  VIEWNAME</td>
+                        <td>
+                            show a view's definition
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\z      [PATTERN]</td>
+                        <td>
+                            same as \dp
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <i><b>Formatting</b></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\a</td>
+                        <td>
+                            toggle between unaligned and aligned output mode
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\C [STRING]</td>
+                        <td>
+                            set table title, or unset if none
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\f [STRING]</td>
+                        <td>
+                            show or set field separator for unaligned query output
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\H</td>
+                        <td>
+                            toggle HTML output mode (currently off)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\pset [NAME [VALUE]]</td>
+                        <td>
+                            set table output option
+                            (NAME := {border|columns|expanded|fieldsep|fieldsep_zero|
+                            footer|format|linestyle|null|numericlocale|pager|
+                            pager_min_lines|recordsep|recordsep_zero|tableattr|title|
+                            tuples_only|unicode_border_linestyle|
+                            unicode_column_linestyle|unicode_header_linestyle})
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\t [on|off]</td>
+                        <td>
+                            show only rows (currently off)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\T [STRING]</td>
+                        <td>
+                            set HTML table tag attributes, or unset if none
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\x [on|off|auto]</td>
+                        <td>
+                            toggle expanded output (currently off)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <i><b>Connection</b></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\c[onnect] {[DBNAME|- USER|- HOST|- PORT|-] | conninfo}</td>
+                        <td>
+                            connect to new database (currently "postgres")
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\conninfo</td>
+                        <td>
+                            display information about current connection
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\encoding [ENCODING]</td>
+                        <td>
+                            show or set client encoding
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\password [USERNAME]</td>
+                        <td>
+                            securely change the password for a user
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <i><b>Operating System</b></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\cd [DIR]</td>
+                        <td>
+                            change the current working directory
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\setenv NAME [VALUE]</td>
+                        <td>
+                            set or unset environment variable
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\timing [on|off]</td>
+                        <td>
+                            toggle timing of commands (currently off)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\! [COMMAND]</td>
+                        <td>
+                            execute command in shell or start interactive shell
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <i><b>Variables</b></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\prompt [TEXT] NAME</td>
+                        <td>
+                            prompt user to set internal variable
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\set [NAME [VALUE]]</td>
+                        <td>
+                            set internal variable, or list all if no parameters
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\unset NAME</td>
+                        <td>
+                            unset (delete) internal variable
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <i><b>Large Objects</b></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\lo_export LOBOID FILE</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>\lo_import FILE [COMMENT]</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>\lo_list</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>\lo_unlink LOBOID</td>
+                        <td>
+                            large object operations
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+{% endblock %}

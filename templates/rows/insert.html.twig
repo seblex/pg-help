@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="card">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <p><h3>Команда: <b>INSERT INTO</b></h3></p>
+                    <hr>
+                    <p>
+                        Синтаксис:
+                    </p>
+                    <blockquote class="blockquote">
+                        INSERT INTO имя_таблицы [( имя_атрибута, имя_атрибута, ... )]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;VALUES ( значение_атрибута, значение_атрибута, ... );
+                    </blockquote>
+                    <hr>
+                    <p>
+                        Пример:
+                    </p>
+                    <blockquote class="blockquote">
+                        INSERT INTO aircrafts ( aircraft_code, model, range )
+                        &nbsp;&nbsp;&nbsp;&nbsp;VALUES ( 'SU9', 'Sukhoi SuperJet-100', 3000 );
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+{%  endblock %}

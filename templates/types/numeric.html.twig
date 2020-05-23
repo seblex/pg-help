@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="card">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Целочисленные</h3>
+                    <ul>
+                        <li>smallint (int2)</li>
+                        <li>integer (int4)</li>
+                        <li>bigint (int8)</li>
+                    </ul>
+                    <h3>Числа фиксированной точности</h3>
+                    <ul>
+                        <li>numeric (numeric(точность, масштаб)): numeric(6, 2) - 12.3456</li>
+                        <li>decimal</li>
+                    </ul>
+                    <h3>Числа с плавающей точкой</h3>
+                    <ul>
+                        <li>real (1E-37 - 1E+37)</li>
+                        <li>double precision (1E-307 - 1E+308)</li>
+                    </ul>
+                    <h3>Последовательные типы</h3>
+                    <ul>
+                        <li>serial</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{%  endblock %}

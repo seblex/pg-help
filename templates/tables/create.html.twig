@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="card">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <p><h3>Команда: <b>CREATE TABLE</b></h3></p>
+                    <hr>
+                    <p>
+                        Синтаксис:
+                    </p>
+                    <blockquote class="blockquote">
+                        CREATE TABLE "имя_таблицы"<br/>
+                        ( имя_поля тип_данных [ограничения_целостности],<br>
+                        &nbsp;&nbsp;имя_поля тип_данных [ограничения_целостности],<br>
+                        &nbsp;&nbsp;...<br>
+                        &nbsp;&nbsp;имя_поля тип_данных [ограничения_целостности],<br>
+                        &nbsp;&nbsp;[ограничение_целостности],<br>
+                        &nbsp;&nbsp;[первичный_ключ],<br>
+                        &nbsp;&nbsp;[внешний_ключ]<br>
+                        );
+                    </blockquote>
+                    <hr>
+                    <p>
+                        Пример:
+                    </p>
+                    <blockquote class="blockquote">
+                        CREATE TABLE aircrafts<br/>
+                        ( aircraft_code char(3) NOT NULL,<br>
+                        &nbsp;&nbsp;model text NOT NULL,<br>
+                        &nbsp;&nbsp;range integer NOT NULL,<br>
+                        &nbsp;&nbsp;CHECK (range > 0),<br>
+                        &nbsp;&nbsp;PRIMARY KEY (aircraft_code)
+                        );
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+{%  endblock %}
